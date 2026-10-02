@@ -1,0 +1,98 @@
+{
+  "name": "cluster5_main",
+  "means": [
+    0.7,
+    0.64,
+    0.63,
+    0.62,
+    0.61
+  ],
+  "beta": 0.5,
+  "workers": 8,
+  "models": {
+    "E": {
+      "enabled": true,
+      "family": "gaussian",
+      "sigma": 0.2
+    },
+    "U": {
+      "enabled": true,
+      "generator": "beta",
+      "concentration": 12.0
+    }
+  },
+  "numerics": {
+    "E": {
+      "qpoints": 31,
+      "xgrid": 81,
+      "oracle_refresh": 25,
+      "refresh": 1,
+      "decide": 1
+    },
+    "U": {
+      "xgrid": 61,
+      "qquad": 301,
+      "refresh": 5,
+      "decide": 5
+    }
+  },
+  "experiments": {
+    "Q1": {
+      "enabled": true,
+      "deltas": [
+        0.0001,
+        1e-05,
+        1e-06,
+        1e-07,
+        1e-08,
+        1e-10
+      ],
+      "reps": 200,
+      "cap": 700000,
+      "E_boundary": "certified",
+      "U_boundary": "practical",
+      "trace_every": 1000
+    },
+    "Q3": {
+      "enabled": true,
+      "deltas": [
+        0.0001,
+        1e-06,
+        1e-08,
+        1e-10
+      ],
+      "reps": 200,
+      "cap": 700000,
+      "E_boundary": "practical",
+      "U_boundary": "practical",
+      "full_boundary": "practical"
+    },
+    "correctness": {
+      "enabled": true,
+      "deltas": [
+        0.1,
+        0.05,
+        0.02,
+        0.01
+      ],
+      "reps": 600,
+      "cap": 400000,
+      "E_boundary": "certified",
+      "U_boundary": "practical"
+    },
+    "nonasymptotic": {
+      "enabled": true,
+      "deltas": [
+        0.01,
+        0.001,
+        0.0001
+      ],
+      "E_reps": 400,
+      "U_reps": 80,
+      "cap": 700000,
+      "eta": 0.05,
+      "E_boundary": "certified",
+      "U_boundary": "certified"
+    }
+  }
+}

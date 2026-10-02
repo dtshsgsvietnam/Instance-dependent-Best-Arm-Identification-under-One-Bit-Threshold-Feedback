@@ -1,0 +1,28 @@
+{
+  "model": "U",
+  "means": [
+    0.9,
+    0.5,
+    0.3,
+    0.2,
+    0.1
+  ],
+  "generator": "beta",
+  "concentration": 12.0,
+  "beta": 0.5,
+  "deltas": [
+    0.1,
+    0.05,
+    0.02,
+    0.01
+  ],
+  "boundary": "certified",
+  "xgrid": 61,
+  "qquad": 301,
+  "refresh": 50,
+  "decide": 50,
+  "reps": 200,
+  "cap": 200000,
+  "reported_workers": 16,
+  "outcome": "all trajectories censored at cap in the final run"
+}

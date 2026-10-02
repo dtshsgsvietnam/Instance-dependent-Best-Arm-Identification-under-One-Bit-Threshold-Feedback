@@ -1,0 +1,40 @@
+{
+  "data_mapping": {
+    "trials1.csv": "E_correctness.csv",
+    "trials2.csv": "E_nonasym_companion.csv",
+    "trials3.csv": "E_Q1.csv",
+    "trials4.csv": "E_Q3.csv",
+    "trials5.csv": "U_correctness.csv",
+    "trials6.csv": "U_Q1.csv",
+    "trials7.csv": "U_Q3.csv",
+    "trials8.csv": "legacy_U_HARD5_b05.csv",
+    "trials9.csv": "legacy_E_CLUSTER5_b05.csv"
+  },
+  "main_figure_inputs": {
+    "relative_efficiency_E": "data/legacy_E_CLUSTER5_b05.csv",
+    "relative_efficiency_U": "data/legacy_U_HARD5_b05.csv",
+    "calibration_E": "data/legacy_E_CLUSTER5_b05.csv",
+    "calibration_U": "data/legacy_U_HARD5_b05.csv"
+  },
+  "new_experiments": {
+    "Q1_E": "data/E_Q1.csv",
+    "Q1_U": "data/U_Q1.csv",
+    "Q3_E": "data/E_Q3.csv",
+    "Q3_U": "data/U_Q3.csv",
+    "correctness_E": "data/E_correctness.csv",
+    "correctness_U": "data/U_correctness.csv",
+    "E_companion": "data/E_nonasym_companion.csv"
+  },
+  "oracle_values": {
+    "cluster5_E_onebit_gamma": 0.004080994480837258,
+    "cluster5_U_raw_gamma": 0.0033946213856749087,
+    "legacy_E_CLUSTER5_Tstar_ratio": 1.5719756221598549,
+    "legacy_U_HARD5_Tstar_ratio": 3.4370394005896188
+  },
+  "notes": [
+    "Q1 and Q3 are not pooled.",
+    "U_Q3 reuses U_raw outcomes from U_Q1 at common deltas; do not count as independent data.",
+    "Certified-U practical stress run is a different stopping rule and is not pooled with raw-U practical data.",
+    "Bootstrap percentile intervals use 1000 resamples and seed 314159."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "bootstrap_resamples": 1000,
+  "bootstrap_seed": 314159,
+  "new_cluster5": {
+    "means": [
+      0.7,
+      0.64,
+      0.63,
+      0.62,
+      0.61
+    ],
+    "beta": 0.5,
+    "E_gamma_onebit": 0.004080994480837258,
+    "U_gamma_raw": 0.0033946213856749087
+  },
+  "old_representative": {
+    "E_CLUSTER5_Tstar_ratio_onebit_over_full": 1.5719756221598549,
+    "U_HARD5_Tstar_ratio_onebit_over_full": 3.4370394005896188
+  },
+  "files": [
+    "main_calibration_E_companion.pdf",
+    "main_calibration_E_companion.png",
+    "main_calibration_U_raw.pdf",
+    "main_calibration_U_raw.png",
+    "relative_E_CLUSTER5.pdf",
+    "relative_U_HARD5.pdf",
+    "supp_E_companion.pdf",
+    "supp_E_companion.png",
+    "supp_q1_E_first_order.pdf",
+    "supp_q1_E_first_order.png",
+    "supp_q1_U_first_order.pdf",
+    "supp_q1_U_first_order.png",
+    "supp_q3_E_full_vs_onebit.pdf",
+    "supp_q3_E_full_vs_onebit.png",
+    "supp_q3_U_full_vs_onebit.pdf",
+    "supp_q3_U_full_vs_onebit.png"
+  ]
+}

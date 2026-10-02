@@ -1,0 +1,11 @@
+file,rows,columns,model,method_or_algorithm,n_unique_rep,deltas,stop_fraction,observed_errors
+E_Q1.csv,1200,17,E,e_tt,200,"1e-10,1e-08,1e-07,1e-06,1e-05,0.0001",1.0,0
+E_Q3.csv,1600,17,E,"e_full,e_tt",200,"1e-10,1e-08,1e-06,0.0001",1.0,0
+E_correctness.csv,2400,17,E,e_tt,600,"0.01,0.02,0.05,0.1",1.0,0
+E_nonasym_companion.csv,2400,17,E,"e_companion,e_tt",400,"0.0001,0.001,0.01",1.0,0
+U_Q1.csv,1200,17,U,u_raw,200,"1e-10,1e-08,1e-07,1e-06,1e-05,0.0001",1.0,0
+U_Q3.csv,1600,17,U,"u_full,u_raw",200,"1e-10,1e-08,1e-06,0.0001",1.0,0
+U_certified_easy5_summary.csv,4,13,U,,,"0.01,0.02,0.05,0.1",,
+U_correctness.csv,4800,17,U,"u_marginal,u_raw",600,"0.01,0.02,0.05,0.1",1.0,0
+legacy_E_CLUSTER5_b05.csv,4000,14,,"full_asym,full_finite,onebit_asym,onebit_finite",200,"1e-08,1e-07,1e-06,1e-05,0.0001",1.0,0
+legacy_U_HARD5_b05.csv,2000,13,,"full,onebit",200,"1e-08,1e-07,1e-06,1e-05,0.0001",1.0,0
