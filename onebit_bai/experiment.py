@@ -30,11 +30,20 @@ PRESETS={
 }
 
 
-def methods_for(model,full=False,companion=True,safe_bit=True,u_methods="both"):
+def methods_for(model,full=False,companion=True,safe_bit=True,u_methods="both",e_methods="both"):
     if model=='E':
-        m=['e_tt'];
-        if companion:m.append('e_companion')
-        if full:m.append('e_full')
+        if e_methods=='tt':
+            m=['e_tt']
+        elif e_methods=='companion':
+            m=['e_companion']
+        elif e_methods=='both':
+            m=['e_tt']
+            if companion:
+                m.append('e_companion')
+        else:
+            raise ValueError(f"Unknown e_methods={e_methods}")
+        if full:
+            m.append('e_full')
         return m
     # Backward compatibility: --skip-safe-bit forces raw-only.
     if not safe_bit:
@@ -167,7 +176,7 @@ def execute(args):
     oracle.update({'model':model,'mus':mus.tolist(),'beta':args.beta,
                    'delta_levels':args.deltas,'u_beta_concentration':args.concentration})
     (out/'oracles.json').write_text(json.dumps(oracle,indent=2))
-    methods=methods_for(model,args.full,args.companion,not args.skip_safe_bit,args.u_methods)
+    methods=methods_for(model,args.full,args.companion,not args.skip_safe_bit,args.u_methods,args.e_methods)
     configs={name:Configuration(model=model,algorithm=name,deltas=tuple(args.deltas),e_family=args.e_family,
                         beta=args.beta,sigma=args.sigma,mu_lo=args.mu_lo,
                         mu_hi=args.mu_hi,qgrid=tuple(qgrid),oracle_xcount=args.xgrid,
@@ -287,6 +296,7 @@ def make_parser():
     p.add_argument('--e-family',choices=['gaussian','bernoulli'],default='gaussian')
     p.add_argument('--u-generator',choices=['beta','bernoulli'],default='beta')
     p.add_argument('--u-methods',choices=['raw','marginal','both'],default='both',help='Which U stopping variant(s) to simulate. raw-only avoids duplicate raw-profile trajectories.')
+    p.add_argument('--e-methods',choices=['tt','companion','both'],default='both',help='Which Model-E one-bit method(s) to simulate. companion-only avoids paying for e_tt during the non-asymptotic run.')
     p.add_argument('--concentration',type=float,default=12.)
     p.add_argument('--qmin',type=float,default=0.)
     p.add_argument('--qmax',type=float,default=1.)

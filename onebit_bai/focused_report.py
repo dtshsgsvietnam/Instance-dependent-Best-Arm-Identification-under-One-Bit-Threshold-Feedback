@@ -38,9 +38,13 @@ def nonasym_method(model:str):
 
 
 def correctness_method(model:str, trials:pd.DataFrame):
-    # For U, the marginal-bit control is the readily runnable certified check.
-    if model == 'U' and 'u_marginal' in set(trials.method):
+    methods = set(trials.method)
+    # For U, prefer the marginal-bit certified correctness check when present.
+    if model == 'U' and 'u_marginal' in methods:
         return 'u_marginal'
+    # Focused Model-E non-asymptotic runs may contain only the companion rule.
+    if model == 'E' and 'e_companion' in methods and 'e_tt' not in methods:
+        return 'e_companion'
     return onebit_method(model)
 
 
@@ -148,9 +152,12 @@ def _save_correctness(trials,root,model):
             p=correct/n; lo=hi=np.nan
         rows.append({'delta':delta,'n':n,'stopped':stopped,'correct_by_cap':correct,
                      'correctness':p,'CP95_lo':lo,'CP95_hi':hi,'complete':complete})
-    d=pd.DataFrame(rows).sort_values('delta',ascending=False)
+    d=pd.DataFrame(rows)
+    if d.empty:
+        d.to_csv(root/'correctness_focused.csv',index=False)
+        return d,method
+    d=d.sort_values('delta',ascending=False)
     d.to_csv(root/'correctness_focused.csv',index=False)
-    if d.empty:return d,method
     fig,ax=plt.subplots(figsize=(7.4,4.6))
     good=d[d.complete]
     if not good.empty:

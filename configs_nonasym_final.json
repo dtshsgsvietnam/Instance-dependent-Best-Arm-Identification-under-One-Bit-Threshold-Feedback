@@ -1,0 +1,44 @@
+{
+  "eta": 0.05,
+  "E": {
+    "means": [0.70, 0.64, 0.63, 0.62, 0.61],
+    "beta": 0.5,
+    "sigma": 0.2,
+    "deltas": [1e-4, 1e-8, 1e-16, 1e-32, 1e-64],
+    "reps": 300,
+    "cap": 120000,
+    "seed": 830101,
+    "qpoints": 31,
+    "xgrid": 81,
+    "oracle_refresh": 25,
+    "refresh": 1,
+    "decide": 1,
+    "companion_a0": 0.12,
+    "boundary": "certified",
+    "workers": 32
+  },
+  "U_practical": {
+    "means": [0.70, 0.64, 0.63, 0.62, 0.61],
+    "beta": 0.5,
+    "concentration": 12.0,
+    "deltas": [1e-4, 1e-6, 1e-8, 1e-10, 1e-12, 1e-16],
+    "reps": 300,
+    "cap": 60000,
+    "seed": 830201,
+    "xgrid": 61,
+    "qquad": 301,
+    "refresh": 5,
+    "decide": 5,
+    "boundary": "practical",
+    "workers": 16
+  },
+  "U_certified_preflight": {
+    "means": [0.95, 0.05],
+    "beta": 0.5,
+    "concentration": 12.0,
+    "deltas": [0.1, 0.05, 0.02, 0.01],
+    "xgrid": 61,
+    "qquad": 301,
+    "max_search": 1000000000000
+  }
+}

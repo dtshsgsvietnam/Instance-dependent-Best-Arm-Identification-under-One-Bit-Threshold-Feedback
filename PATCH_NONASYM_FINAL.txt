@@ -1,0 +1,8 @@
+Changes relative to v39.5:
+- Added --e-methods {tt,companion,both}; final E non-asym run can now execute companion only.
+- Added population preflight for E certified, U practical, and U certified.
+- Added smoke/pilot/final/resume pipeline for Ubuntu.
+- Added runtime estimator from pilot data.
+- Added E theorem-shaped and U practical theorem-motivated correction-scale reports.
+- Certified-U final Monte Carlo is intentionally not launched by this pipeline.
+- Added regression tests for companion-only mode and boundary ordering.
